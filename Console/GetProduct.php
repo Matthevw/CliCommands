@@ -12,7 +12,6 @@ use \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory;
 
 class GetProduct extends Command
 {
-
     const SKU = 'sku';
 
     /**
@@ -55,26 +54,12 @@ class GetProduct extends Command
     $sku = $input->getOption(self::SKU);
 
     $product = $this->collectionOfProducts->create()->addAttributeToSelect('*')->addAttributeToFilter('sku', array('eq' => $sku))->getData();
-    // print(print_r($product,true));
 
-    if (empty($product)){
+    if (empty($product)) {
         return $output->writeln("OOPS, nie mamy takiego produktu w bazie");;
     }
         $id = $product[0]["entity_id"];
         $output->writeln($id);
         return $id;
-
-    // try
-    // {
-    //     $sampleProduct = $this->productRepository->get($sku);
-
-    //     $produtIdBySku = $sampleProduct->getId();
-    //     var_dump($produtIdBySku);
-    // }
-    // catch (\Exception $e)
-    // {
-    //     $output->writeln("OOPS, nie mamy takiego produktu w bazie");
-    // }
-
    }
 }

@@ -92,30 +92,36 @@ class DebugCommand extends Command
     
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $this->state->setAreaCode(\Magento\Framework\App\Area::AREA_ADMINHTML); //ustawianie trybu, gdyby był błąd
+        //Sets Area if the error occurs
+        $this->state->setAreaCode(\Magento\Framework\App\Area::AREA_ADMINHTML); 
+
+        //Module: Logger
         // $this->logger->info('Logged Data from CLI Debugger', [], );
 
+        //Module: ProductTypesExercise
         // $this->product->addProduct();
         // $this->product->getProduct("73827");
 
+        //Module: CategoryExercise
         // $this->category->addCategory();
         // $this->category->getCategory();
         // $this->category->getCategoryById();
 
+        //Module: ApiAndCurlExercise
         // $this->apiExercise->getApiData();
 
-        //ProductsFromApi
+        //Module: ProductsFromApi
         // $this->addAllProducts->addProducts();
         // $this->addAllProducts->getProducts();
 
-        //WeatherFromApi
+        //Module: WeatherFromApi
         // $this->weather->getWeatherByCity("Warsaw");
 
-        //AttributeProg
+        //Module: AttributeProg
         // $this->addTwoProducts->addProducts();
 
-        //AddConfigurableProduct
-        $this->addConfigurableProduct->addProductKV(); // błąd
+        //Module: AddConfigurableProduct
+        $this->addConfigurableProduct->addProductKV();
 
     }
 }
